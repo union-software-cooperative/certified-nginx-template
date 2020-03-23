@@ -1,0 +1,3 @@
+data/certbot/secrets/*
+data/nginx/*
+!*.example

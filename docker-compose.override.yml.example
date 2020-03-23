@@ -1,0 +1,9 @@
+# Put this on the same network as any apps it needs to reverse proxy for.
+# version: '3'
+# networks:
+#   default:
+#     external:
+#       name: universal
+# services:
+#   certbot:
+#     image: certbot/dns-cloudflare
