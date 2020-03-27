@@ -1,3 +1,4 @@
 data/certbot/secrets/*
 data/nginx/*
+config.sh
 !*.example

@@ -1,9 +1,16 @@
-# Put this on the same network as any apps it needs to reverse proxy for.
 # version: '3'
+# Communication method #1. Nginx and your web server must be on the same external Docker network.
 # networks:
 #   default:
 #     external:
 #       name: universal
+# Communication method #2. Nginx mounts your web server root directory and upstreams to a Unix socket contained therein.
+# services:
+#   nginx:
+#     volumes:
+#       - /path/to/webserver/root:/path/to/webserver/root
+# Communication method #3. ???
+# Override certbot image to use other DNS providers at your own risk!
 # services:
 #   certbot:
 #     image: certbot/dns-cloudflare
