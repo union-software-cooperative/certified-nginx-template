@@ -39,6 +39,7 @@ if [ $staging != "0" ]; then staging_arg="--staging"; fi
 docker-compose run --rm --entrypoint "\
   certbot certonly --dns-cloudflare \
     --dns-cloudflare-credentials /root/.secrets/cloudflare/cloudflare.ini \
+    --dns-cloudflare-propagation-seconds $timeout
     $staging_arg \
     $email_arg \
     $domain_args \
