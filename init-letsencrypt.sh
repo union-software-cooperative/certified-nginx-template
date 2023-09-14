@@ -1,6 +1,6 @@
 #!/bin/bash
-if ! [ -x "$(command -v docker-compose)" ]; then
-  echo 'Error: docker-compose is not installed.' >&2
+if ! [ -x "$(command -v docker)" ]; then
+  echo 'Error: docker is not installed.' >&2
   exit 1
 fi
 
@@ -36,7 +36,7 @@ esac
 # Enable staging mode if needed
 if [ $staging != "0" ]; then staging_arg="--staging"; fi
 
-docker-compose run --rm --entrypoint "\
+docker compose run --rm --entrypoint "\
   certbot certonly --dns-cloudflare \
     --dns-cloudflare-credentials /root/.secrets/cloudflare/cloudflare.ini \
     --dns-cloudflare-propagation-seconds $timeout
@@ -50,4 +50,4 @@ docker-compose run --rm --entrypoint "\
 echo
 
 echo "### Starting up ..."
-docker-compose up --force-recreate -d
+docker compose up --force-recreate -d

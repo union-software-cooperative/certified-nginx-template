@@ -1,8 +1,10 @@
-data/certbot/secrets/*
-data/nginx/*
-data/certbot/conf/*
 config.sh
 docker-compose.override.yml
-!*.example
+
+*.conf
+
+data/certbot/secrets/*
+data/certbot/conf/*
 !data/certbot/conf/options-ssl-nginx.conf
 !data/certbot/conf/ssl-dhparams.pem
+

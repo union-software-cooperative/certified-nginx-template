@@ -1,11 +1,10 @@
 #!/bin/bash
-if ! [ -x "$(command -v docker-compose)" ]; then
-  echo 'Error: docker-compose is not installed.' >&2
+if ! [ -x "$(command -v docker)" ]; then
+  echo 'Error: docker is not installed.' >&2
   exit 1
 fi
 
 source ./config.sh
-domains=()
 domain_args=""
 for domain in $@; do
   domains+=($domain)
@@ -29,7 +28,7 @@ esac
 # Enable staging mode if needed
 if [ $staging != "0" ]; then staging_arg="--staging"; fi
 
-docker-compose run --rm --entrypoint "\
+docker compose run --rm --entrypoint "\
   certbot certonly --dns-cloudflare \
     --dns-cloudflare-credentials /root/.secrets/cloudflare/cloudflare.ini \
     $staging_arg \
