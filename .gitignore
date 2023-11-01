@@ -1,5 +1,6 @@
 config.sh
 docker-compose.override.yml
+domain_list
 
 *.conf
 

@@ -1,11 +1,12 @@
 #!/bin/bash
-if ! [ -x "$(command -v docker)" ]; then
-  echo 'Error: docker is not installed.' >&2
-  exit 1
-fi
 
-source ./config.sh
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+. $SCRIPT_DIR/check-docker.sh
+. $SCRIPT_DIR/config.sh
+
 domain_args=""
+domains=()
 for domain in $@; do
   domains+=($domain)
   domain_args="$domain_args -d $domain"
