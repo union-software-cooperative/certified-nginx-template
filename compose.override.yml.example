@@ -1,4 +1,3 @@
-# version: '3'
 # Communication method #1. Nginx and your web server must be on the same external Docker network.
 # networks:
 #   default:
